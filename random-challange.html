@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stag Challenge</title>
+    <script>
+        function getRandomChallenge() {
+            const challenges = [
+                "Do 20 push-ups.",
+                "Sing a song in a funny voice.",
+                "Do a silly dance for 1 minute.",
+                "Tell a joke.",
+                "Imitate an animal for 30 seconds.",
+                "Run around the block.",
+                "Do a cartwheel.",
+                "Make up a short poem.",
+                "Balance a book on your head for 1 minute.",
+                "Act like a chicken until someone guesses what you are."
+            ];
+            const randomIndex = Math.floor(Math.random() * challenges.length);
+            return challenges[randomIndex];
+        }
+
+        function displayChallenge() {
+            const challenge = getRandomChallenge();
+            document.getElementById('challenge').innerText = challenge;
+        }
+    </script>
+</head>
+<body onload="displayChallenge()">
+    <h1>Your Stag Challenge</h1>
+    <p id="challenge"></p>
+</body>
+</html>
