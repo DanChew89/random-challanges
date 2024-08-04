@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Selector</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .question-box {
+            width: 18%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #000;
+            text-align: center;
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="questionContainer">
+    <!-- Question boxes will be added here by JavaScript -->
+</div>
+
+<div class="button-container">
+    <button onclick="selectRandomChallenge()">Select Challenge</button>
+</div>
+
+<script>
+    // Generate 50 question boxes
+    const questionContainer = document.getElementById('questionContainer');
+    for (let i = 1; i <= 50; i++) {
+        const div = document.createElement('div');
+        div.classList.add('question-box');
+        div.textContent = `Challenge ${i}`;
+        questionContainer.appendChild(div);
+    }
+
+    function selectRandomChallenge() {
+        const boxes = document.querySelectorAll('.question-box');
+        let selectedBox;
+
+        // Remove previous highlights
+        boxes.forEach(box => box.classList.remove('highlight'));
+
+        let iterations = 10;
+        let interval = 100;
+
+        function highlightBox() {
+            if (selectedBox) {
+                selectedBox.classList.remove('highlight');
+            }
+            selectedBox = boxes[Math.floor(Math.random() * boxes.length)];
+            selectedBox.classList.add('highlight');
+
+            if (iterations > 0) {
+                setTimeout(highlightBox, interval);
+                iterations--;
+                interval += 50; // Increase the interval to simulate slowing down
+            }
+        }
+
+        highlightBox();
+    }
+</script>
+
+</body>
+</html>
