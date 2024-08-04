@@ -39,36 +39,45 @@
 </div>
 
 <script>
-    const questions = [
+    const challenges = [
         "What is your favorite color?",
         "What is your dream job?",
         "Describe your perfect day.",
         "What is your favorite movie?",
         "If you could travel anywhere, where would you go?",
-        // Add more questions here up to 50
-        "Question 6", "Question 7", "Question 8", "Question 9", "Question 10",
-        "Question 11", "Question 12", "Question 13", "Question 14", "Question 15",
-        "Question 16", "Question 17", "Question 18", "Question 19", "Question 20",
-        "Question 21", "Question 22", "Question 23", "Question 24", "Question 25",
-        "Question 26", "Question 27", "Question 28", "Question 29", "Question 30",
-        "Question 31", "Question 32", "Question 33", "Question 34", "Question 35",
-        "Question 36", "Question 37", "Question 38", "Question 39", "Question 40",
-        "Question 41", "Question 42", "Question 43", "Question 44", "Question 45",
-        "Question 46", "Question 47", "Question 48", "Question 49", "Question 50"
+        // Add more challenges here up to 50
+        "Challenge 6", "Challenge 7", "Challenge 8", "Challenge 9", "Challenge 10",
+        "Challenge 11", "Challenge 12", "Challenge 13", "Challenge 14", "Challenge 15",
+        "Challenge 16", "Challenge 17", "Challenge 18", "Challenge 19", "Challenge 20",
+        "Challenge 21", "Challenge 22", "Challenge 23", "Challenge 24", "Challenge 25",
+        "Challenge 26", "Challenge 27", "Challenge 28", "Challenge 29", "Challenge 30",
+        "Challenge 31", "Challenge 32", "Challenge 33", "Challenge 34", "Challenge 35",
+        "Challenge 36", "Challenge 37", "Challenge 38", "Challenge 39", "Challenge 40",
+        "Challenge 41", "Challenge 42", "Challenge 43", "Challenge 44", "Challenge 45",
+        "Challenge 46", "Challenge 47", "Challenge 48", "Challenge 49", "Challenge 50"
     ];
 
-    // Generate question boxes
+    // Generate challenge boxes
     const questionContainer = document.getElementById('questionContainer');
-    questions.forEach((question, index) => {
+    challenges.forEach((challenge, index) => {
         const div = document.createElement('div');
         div.classList.add('question-box');
-        div.textContent = question;
+        div.textContent = `Challenge ${index + 1}`;
+        div.addEventListener('click', () => displayChallenge(index));
         questionContainer.appendChild(div);
     });
 
+    let selectedBox;
+
+    function displayChallenge(index) {
+        const boxes = document.querySelectorAll('.question-box');
+        if (boxes[index].classList.contains('highlight')) {
+            alert(challenges[index]);
+        }
+    }
+
     function selectRandomChallenge() {
         const boxes = document.querySelectorAll('.question-box');
-        let selectedBox;
 
         // Remove previous highlights
         boxes.forEach(box => box.classList.remove('highlight'));
