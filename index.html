@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenge Selector</title>
     <style>
+        body {
+            background-image: url('images/stag-do.jpg');
+            background-repeat: no-repeat;
+            #background-attachment: fixed; 
+            background-size: 100% 100%;
+                       
+        }
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -18,29 +25,46 @@
             border: 1px solid #000;
             text-align: center;
             cursor: pointer;
+            border-radius: 10px;
+            background-color: white;
         }
         .highlight {
-            background-color: yellow;
+            background-color: green;
         }
         .button-container {
+            
             text-align: center;
             margin-top: 20px;
         }
+        #stagname {
+            background-color: white;
+            text-align: center;
+            font-size: xx-large;
+            display:inline;
+            border-radius: 10px;
+            padding: 5px;
+                        ;
+        }
+        #button {
+            border-radius: 10px;
+            font-size: x-large;
+        }
+
     </style>
 </head>
 <body>
-
+<div class="StagName" id="stagname">Seans Stags</div>
 <div class="container" id="questionContainer">
     <!-- Question boxes will be added here by JavaScript -->
 </div>
 
 <div class="button-container">
-    <button onclick="selectRandomChallenge()">Select Challenge</button>
+    <button id="button" onclick="selectRandomChallenge()">Select Challenge</button>
 </div>
 
 <script>
     const challenges = [
-        "Pub Crawl Bingo: Create bingo cards with different drinks or tasks to complete at each pub",
+"Pub Crawl Bingo: Create bingo cards with different drinks or tasks to complete at each pub",
 "Scavenger Hunt: Make a list of items or tasks to find or complete around the city",
 "Karaoke Challenge: Each person has to sing a song chosen by the group",
 "Costume Contest: Everyone dresses up according to a theme, and the best costume wins a prize",
